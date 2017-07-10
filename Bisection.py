@@ -1,7 +1,12 @@
+#John Berkley
+#CS 301
+#7/8/2017
+
+
 from math import fabs, cosh
 
 
-def bisection(func, a, b, e):
+def bisection(func, a, b, e, true_value):
     fa = func(a)
     fb = func(b)
     if not fa * fb < 0:
@@ -13,7 +18,8 @@ def bisection(func, a, b, e):
         error /= 2
         c = a + error
         fc = func(c)
-        print('{} : {} : {} : {}'.format(n, c, fc, error))
+        print('Iteration: {} ; Current Value: {} ; Function Value: {}'.format(n, c, fc))
+        print('\tRelative Error: {} ; True Error: {}'.format(error, (abs(true_value - c) / true_value)))
         if abs(error) < e:
             print('\nConverged to Root\n')
             return
@@ -33,5 +39,8 @@ def g(x):
     return x + 10 - (x * cosh(50 / x))
 
 
-bisection(f, 0, 1, .01)
-bisection(g, 120, 130, .01)
+bisection(f, 0, 1, .01, 0.3651)
+bisection(f, 1, 2, .01, 1.92174)
+bisection(f, 3, 4, .01, 3.56316)
+
+bisection(g, 120, 130, .01, 126.632)

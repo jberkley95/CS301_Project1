@@ -1,7 +1,12 @@
+#John Berkley
+#CS 301
+#7/8/2017
+
+
 from math import fabs, cosh
 
 
-def newton(func, dfunc, x, e):
+def newton(func, dfunc, x, e):#, true_value):
     fx = func(x)
 
     for n in range(100):
@@ -9,7 +14,8 @@ def newton(func, dfunc, x, e):
         d = fx / fp
         x -= d
         fx = func(x)
-        print('{} : {} : {}'.format(n, x, fx))
+        print('Iteration: {} ; Current Value: {} ; Function Value: {}'.format(n, x, fx))
+        #print('\tRelative Error: {} ; True Error: {}'.format(error, (abs(true_value - x) / true_value)))
         if fabs(d) < e:
             print('\nConverged To Root\n')
             return
