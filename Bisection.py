@@ -1,6 +1,6 @@
-#John Berkley
-#CS 301
-#7/8/2017
+# John Berkley
+# CS 301
+# 7/8/2017
 
 
 from math import fabs, cosh
@@ -19,7 +19,7 @@ def bisection(func, a, b, e, true_value):
         c = a + error
         fc = func(c)
         print('Iteration: {} ; Current Value: {} ; Function Value: {}'.format(n, c, fc))
-        print('\tRelative Error: {} ; True Error: {}'.format(error, (abs(true_value - c) / true_value)))
+        print('\tRelative Error: {} ; True Error: {}'.format(error, (fabs(true_value - c) / true_value)))
         if abs(error) < e:
             print('\nConverged to Root\n')
             return
